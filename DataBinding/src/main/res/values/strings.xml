@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">DataBindingSample</string>
+
+    <string name="demo_list_add_item">Add Item</string>
+    <string name="demo_list_remove_item">Remove Item</string>
+
+    <string name="welcome">Hello %1$s</string>
+    <string name="show_image">ShowImage</string>
 </resources>

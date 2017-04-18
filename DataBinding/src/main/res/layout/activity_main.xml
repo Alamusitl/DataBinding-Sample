@@ -1,45 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
-    <data>
-
-        <variable
-            name="employee"
-            type="com.owl.example.databinding.Employee"/>
-
-        <variable
-            name="presenter"
-            type="com.owl.example.databinding.MainActivity.Presenter"/>
-    </data>
-
-    <LinearLayout
+    <Button
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context="com.owl.example.databinding.MainActivity">
+        android:layout_height="wrap_content"
+        android:onClick="onSimpleClick"
+        android:text="Simple"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="输入 First Name"
-            android:onTextChanged="@{presenter.onTextChanged}"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onListClick"
+        android:text="List"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:onClick="@{presenter.onClick}"
-            android:text="@{employee.firstName}"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onTwoWayBindingClick"
+        android:text="Two-Way Binding"/>
 
-        <TextView
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onLambdaClick"
+        android:text="Lambda"/>
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:onClick="@{() -> presenter.onClickListenerBinding(employee)}"
-            android:text="@{employee.lastName}"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onExpressionClick"
+        android:text="Expression"/>
 
-    </LinearLayout>
-</layout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onAnimationClick"
+        android:text="Animation"/>
+</LinearLayout>

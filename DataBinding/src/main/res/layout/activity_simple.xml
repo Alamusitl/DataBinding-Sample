@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="employee"
+            type="com.owl.example.databinding.Employee"/>
+
+        <variable
+            name="presenter"
+            type="com.owl.example.databinding.SimpleActivity.Presenter"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context="com.owl.example.databinding.SimpleActivity">
+
+        <ViewStub
+            android:id="@+id/viewstub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout="@layout/viewstub"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="输入 First Name"
+            android:onTextChanged="@{presenter.onTextChanged}"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:onClick="@{presenter.onClick}"
+            android:text="@{employee.firstName}"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:onClick="@{() -> presenter.onClickListenerBinding(employee)}"
+            android:text="@{employee.lastName}"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:onClick="@{() -> presenter.onClickListenerBinding(employee)}"
+            android:text="@{String.valueOf(1 + 2)}"
+            android:visibility="@{employee.isFired ? View.GONE: View.VISIBLE}"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text='@{employee.user["hello"]}'/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text='@{employee.user["hi"]}'/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text='@{employee.user["hei"]}'/>
+
+        <include
+            layout="@layout/include_demo"
+            bind:employee="@{employee}"/>
+
+    </LinearLayout>
+</layout>
